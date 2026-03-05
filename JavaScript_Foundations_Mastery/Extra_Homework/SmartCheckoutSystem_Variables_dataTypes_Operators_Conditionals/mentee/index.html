@@ -19,7 +19,39 @@
     <!-- Goal: Build a realistic checkout page UI and let JavaScript calculate totals. -->
     <!-- NOTE: Your *checkout logic* must use ONLY: variables, data types, operators, conditionals. -->
     <!-- DOM + event listeners are allowed because this is the Realistic UI version. -->
+     <main class="continer">
+          <section class="card">
+               <div class="header">
+                    <h1>Smart Checkout</h1>
+                    <span class="badge">Secure</span>
+               </div>
 
+               <label for="cartTotal" >Cart Total</label>
+               <input id="cartTotal" type="number" placeholder= "8" />
+
+               <div class="row">
+                    <div>
+                         <label for="membership">Verify membership</label>
+                         <select id="membership">Membership
+                              <option value="standard">Standard</option>
+                              <option value="premium">Premium</option>
+                              <option value="vip">VIP</option>
+                         </select>
+                    </div>
+                    <div>
+                         <label for="coupon">Scan Coupon</label>
+                         <select id="coupon">Coupon Check
+                              <option value="yes">Yes</option>
+                              <option value="No">No</option>
+                         </select>
+                    </div>
+               </div>
+
+               <button id="calcBtn" class="btn">Calculate Total</button>
+               <p id="message" class="message"></p>
+          </section>
+          
+     </main>
     <!-- Step 6: Create a main container that holds TWO cards (left = inputs, right = summary) -->
     <!-- Give it a class="container" -->
 
@@ -58,6 +90,41 @@
     <!-- Step 13: Add a message paragraph under the button -->
     <!-- Give it id="message" and class="message" -->
     <!-- JavaScript will update this text with warnings or free shipping messages -->
+          <section class="card">
+               <div class="header">
+                    <h1>Order Summary</h1>
+                    <span class="badge">Receipt</span>
+               </div>
+               <div class="line">
+                    <label id="subtotal">Subtotal</label>
+                    <span id="subtotalText">$0.00</span>
+               </div>
+               <div class="line">
+                    <label id="discount">Discount</label>
+                    <span id="discountText">$0.00</span>
+               </div>
+               <div class="line">
+                    <label id="shipping">Shipping</label>
+                    <span id="shippingText">$0.00</span>
+               </div>
+               <div class="line">
+                    <label id="final" class="total">Final Total</label>
+                    <span id="finalTotalText">$0.00</span>
+               </div>
+
+               <p class="note">
+                    Being a member could not be any better!<br>
+                    Premium members get 15% off.<br>
+                    Being VIP get you 25% off.<br>
+                    Holding a coupon adds an extra 10% off.<br>
+                    Orders over $150 are elegible for free shipping.
+               </p>
+          </section>
+
+          <script src="script.js"></script>
+
+
+
 
     <!-- Step 14: Create the RIGHT card (order summary receipt) -->
     <!-- Give it class="card" -->

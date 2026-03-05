@@ -15,8 +15,81 @@
 // - shipping display        → id="shippingText"
 // - final total display     → id="finalTotalText"
 
+let cartTotalValue = document.getElementById("cartTotal");
+let memberDropDown = document.getElementById("membership");
+let couponDropDown = document.getElementById("coupon");
+let calculateBtn = document.getElementById("calcBtn");
+let messagePara = document.getElementById("message");
+let subtotalDisplay = document.getElementById("subtotalText");
+let discountDisplay = document.getElementById("discountText");
+let shippingDisplay = document.getElementById("shippingText");
+let finalTotalDisplay = document.getElementById("finalTotalText");
+
+
+calculateBtn.addEventListener("click", function() {
+    const cartTotal = Number(cartTotalValue.value);
+    const membership = memberDropDown.value;
+    const coupon = couponDropDown.value;
+
+    const hasCoupon = coupon === "yes";
+
+
+    if (!cartTotalValue.value || cartTotal <= 0) {
+        messagePara.textContent = "Check your cart! It's empty."
+        return
+    };
+
+    let subtotal = "";
+    let discountAmount = "";
+    let shippingCost = "" ;
+    let totalAfterDiscount = "";
+    let finalTotal = "";
+
+    if (memberDropDown === "premium") {
+        discountAmount = (15 / 100) * cartTotal;
+        subtotal = cartTotal * discountAmount;
+    } else if (memberDropDown === "VIP") {
+        discountAmount = (25 / 100) * cartTotal;
+        subtotal = cartTotal * discountAmount;
+    } else {
+        discountAmount = 0
+        subtotal = cartTotal;
+    }
+
+    if (hasCoupon === "true") {
+        discountAmount = (10/100) * cartTotal
+        subtotal = cartTotal * discountAmount;
+    } else {
+        subtotal = cartTotal;
+    }
+
+    totalAfterDiscount = subtotal - discountAmount
+
+    if (totalAfterDiscount >= 150) {
+        shippingCost = 0;
+    } else {
+        shippingCost = 9.99;
+    }
+
+    finalTotal = totalAfterDiscount + shippingCost;
+
+    subtotalDisplay.textContent = subtotal;
+    discountDisplay.textContent = discountAmount;
+    shippingDisplay.textContent = shippingCost;
+    finalTotalDisplay.textContent = finalTotal;
+
+    if (shippingCost === 0) {
+        messagePara.textContent = "Free shipping unlocked";
+    } 
+    else if(getFreeShip = 150 - totalAfterDiscount) { 
+        messagePara.textContent = `Add $${getFreeShip} to unlock free shipping`;
+    }
+})
+
+
 // Step 2: Add a click event listener to the Calculate button
 // When the button is clicked, run the checkout calculation function
+
 
 // Step 3: Inside the click function, read the user inputs
 // - cartTotal should become a NUMBER (not a string)

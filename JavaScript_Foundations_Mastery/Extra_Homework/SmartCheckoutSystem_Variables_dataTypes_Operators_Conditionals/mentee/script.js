@@ -15,7 +15,7 @@
 // - shipping display        → id="shippingText"
 // - final total display     → id="finalTotalText"
 
-let cartTotalValue = document.getElementById("cartTotal");
+let cartTotalInput = document.getElementById("cartTotal");
 let memberDropDown = document.getElementById("membership");
 let couponDropDown = document.getElementById("coupon");
 let calculateBtn = document.getElementById("calcBtn");
@@ -27,38 +27,41 @@ let finalTotalDisplay = document.getElementById("finalTotalText");
 
 
 calculateBtn.addEventListener("click", function() {
-    const cartTotal = Number(cartTotalValue.value);
+    const cartTotal = Number(cartTotalInput.value);
     const membership = memberDropDown.value;
     const coupon = couponDropDown.value;
 
-    const hasCoupon = coupon === "yes";
+    let hasCoupon = coupon === "yes";
 
 
-    if (!cartTotalValue.value || cartTotal <= 0) {
-        messagePara.textContent = "Check your cart! It's empty."
-        return
-    };
-
+    if (!cartTotalInput.value || cartTotal <= 0) {
+        messagePara.textContent = "Check your cart! It may be empty."
+        return;
+    }
+    
     let subtotal = "";
     let discountAmount = "";
-    let shippingCost = "" ;
+    let shippingCost = "";
     let totalAfterDiscount = "";
     let finalTotal = "";
+    
+    
 
-    if (memberDropDown === "premium") {
-        discountAmount = (15 / 100) * cartTotal;
-        subtotal = cartTotal * discountAmount;
-    } else if (memberDropDown === "VIP") {
-        discountAmount = (25 / 100) * cartTotal;
-        subtotal = cartTotal * discountAmount;
+    if (membership === "premium") {
+        discountAmount = ((15 / 100) * cartTotal);
+        subtotal = cartTotal + discountAmount;
+    } else if (membership === "vip") {
+        discountAmount = ((25 / 100) * cartTotal);
+        subtotal = cartTotal + discountAmount;
     } else {
-        discountAmount = 0
+        discountAmount = 0;
         subtotal = cartTotal;
     }
 
-    if (hasCoupon === "true") {
-        discountAmount = (10/100) * cartTotal
-        subtotal = cartTotal * discountAmount;
+
+    if (hasCoupon === "yes") {
+        discountAmount = ((10 / 100) * cartTotal);
+        subtotal = cartTotal + discountAmount;
     } else {
         subtotal = cartTotal;
     }
@@ -77,6 +80,8 @@ calculateBtn.addEventListener("click", function() {
     discountDisplay.textContent = discountAmount;
     shippingDisplay.textContent = shippingCost;
     finalTotalDisplay.textContent = finalTotal;
+
+    getFreeShip = 150 - totalAfterDiscount 
 
     if (shippingCost === 0) {
         messagePara.textContent = "Free shipping unlocked";

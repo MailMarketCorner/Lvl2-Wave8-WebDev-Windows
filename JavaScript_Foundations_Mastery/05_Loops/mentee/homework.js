@@ -24,14 +24,13 @@
 // STEP 5: After finishing, try changing baseNumber to a new number
 //         and see the new table in the console.
 
-baseNumber = 8;
+let baseNumber = 8;
 
 let titleLine = `--- MULTIPLICATION TABLE FOR ${baseNumber} ---`; 
 console.log(titleLine);
 
-for (i = 1; i <= 10; i++) {
-    let currentMultiplier = i;
-   let variableResult = baseNumber * currentMultiplier 
-   console.log(`${baseNumber}*${currentMultiplier}` + "=" + `${variableResult}`)
+for (let i = 1; i <= 10; i++) {
+   let variableResult = baseNumber * i; 
+   console.log(`${baseNumber}*${i}` + "=" + `${variableResult}`)
 }
 

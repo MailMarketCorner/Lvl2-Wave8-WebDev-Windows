@@ -19,17 +19,20 @@
 
 // STEP 7: Log the updated contacts array.
 
+
 let contacts = [
-    {name: "Melanie" , phone: 9233343254 , isFavorite: true},
-    {name: "Victor" , phone: 9231234253 , isFavorite: true},
-    {name: "Casey" , phone: 9261839454 , isFavorite: false},
-    {name: "Jocelin" , phone: 9231234234 , isFavorite: true},
-    {name: "Josue" , phone: 9231142452 , isFavorite: false},
+    {name: "Andrew" , phone: 987654321 , isFavourite: false},
+    {name: "Melanie" , phone: 387234462 , isFavourite: true},
+    {name: "Jason" , phone: 2323193231 , isFavourite: false},
+    {name: "Gabriela" , phone: 6453244265 , isFavourite: true},
+    {name: "Ella" , phone: 753548734 , isFavourite: false},
 ];
 
-console.log(contacts.length);
-console.log(contacts[0]["name"]);
+console.log("Contacts saved: ", contacts.length);
+console.log("1st contact name: ", contacts[0]["name"]);
 
-contacts[3].isFavorite = false;
-contacts[5] = {name: "Maya" , phone: 922328239 , isFavorite: false};
+contacts[2].isFavourite = true
+console.log("STEP 5: ", contacts);
+
+contacts.push({name: "Femi", phone: 930374629, isFavourite: false});
 console.log(contacts);

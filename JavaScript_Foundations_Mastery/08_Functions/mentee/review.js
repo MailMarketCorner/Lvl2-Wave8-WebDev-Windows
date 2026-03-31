@@ -223,3 +223,4 @@ console.log(formatPrice(13.267));
 // STEP 23: Write a console.log message (just text) that explains in your own words:
 //          "A callback is a function passed into another function."
 //
+

@@ -71,12 +71,10 @@ console.log(canWatchMovie(17));
 //         - greet("Maya")
 //         - greet()   (no argument)
 
-function greet(name) {
+function greet (name) {
     name = "friend";
-
-        return (`Hello, ${name}`)
-};
-
+    return (`Hello, ${name}`);
+}
 console.log(greet("Maya"));
 console.log(greet());
 
@@ -161,17 +159,16 @@ console.log(multiplyResult);
 
 let addTax = (price, taxRatePercent) => {
     if (taxRatePercent > 100 || taxRatePercent < 0) {
-        console.log("The tax-rate is not a valid figure")
-
+        console.log("The tax-rate is not a valid figure");
+        return;
     }
 
-    taxRatePercent = taxRatePercent / 100;
-    
-    let taxAmount = price * taxRatePercent;
-    let finalPrice = price * taxAmount;
+    const taxRate = taxRatePercent / 100;
+    const taxAmount = price * taxRate;
 
-    return finalPrice = price + taxAmount;
-}
+    return price + taxAmount;
+};
+
 
 console.log(addTax(100, 16));
 console.log(addTax(59.99, 8));

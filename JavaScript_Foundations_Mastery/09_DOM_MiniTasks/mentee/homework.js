@@ -35,21 +35,21 @@
 
 let mainTitleEl = document.querySelector("#moviesTitle");
 let filmInfoEl = document.getElementById("moviesInfo");
-let listFilmEl = document.getElementById("movieList");
+let listFilmEl = document.getElementById("moviesList");
 
 mainTitleEl.textContent = "Movie List";
 
-let movieCount = moviesList.children.length;
+let movieCount = listFilmEl.querySelectorAll("li").length;
 
 filmInfoEl.textContent = `You currently have ${movieCount} favourite movies in your list. `
 
 const newAdd = document.createElement("li");
 newAdd.textContent = "Spiderman";
 newAdd.classList.add("movie-item");
-moviesList.appendChild(newAdd); 
+listFilmEl.appendChild(newAdd); 
 
-const oneItem = moviesList.querySelector("li");
-oneItem.textContent = "Bugonia";
+const removeItem = listFilmEl.querySelector("li");
+removeItem.remove();
 
-movieCount = moviesList.children.length;
-filmInfoEl.textContent = `You currently have ${movieCount} favourite movies in your list.`;
+    movieCount = listFilmEl.children.length;
+    filmInfoEl.textContent = `You currently have ${movieCount} favourite movies in your list.`;

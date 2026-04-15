@@ -66,3 +66,48 @@
 //             productContainer.innerHTML = cardsHTML;
 //
 //         Now when you click the button, the product cards should appear.
+
+const generateProductsBtn = document.getElementById("generateProductsBtn");
+const productContainer = document.getElementById("productContainer");
+
+const products = [
+    {title: "Wireless Headphones", price: 59.99, stock: 12},
+    {title: "Mechanical Keyboard", price: 129.50, stock: 0},
+    {title: "Gaming Mouse", price: 45.00, stock: 5},
+    {title: "OLED Monitor", price: 599.99, stock: 3},
+]
+
+function createProductCard ({title, price, stock}) {
+
+    const priceText = "$" + price.toFixed(2);
+
+    let stockMessage;
+    let stockClass;
+
+    if (stock === 0) {
+        stockMessage = "Out of stock";
+        stockClass = "out";
+    } else {
+        stockMessage = `In stock: ${stock} items`;
+        stockClass = "in";
+    }
+
+    return `
+    <article class="product-card">
+      <h2 class="product-title">${title}</h2>
+      <p class="product-price">${priceText}</p>
+      <p class="product-stock ${stockClass}">${stockMessage}</p>
+    </article>
+    `;   
+}
+
+
+generateProductsBtn.addEventListener("click" , () => {
+    let cardsHTML = "";
+
+    products.forEach((product) => {
+        cardsHTML += createProductCard(product);
+    });
+
+    productContainer.innerHTML = cardsHTML;
+});

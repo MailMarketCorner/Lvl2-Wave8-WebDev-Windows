@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service: BP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <main class="container" style="max-width: 600px; margin-top: 5vh;">
+        <div class="card">
+            <h2 class="card-title" style="text-align: center;">Contact Us</h2>
+        </div>
+
+        <form id="contactForm">
+            <label for="userName">Name:</label>
+            <input type="text" id="userName" placeholder= "Type your name" required>
+
+            <label for="userEmail" style = "margin-top: 10px;">Email:</label>
+            <input type="text" id="userEmail" placeholder="you@example.com" required>
+
+            <label for="userMessage" style="margin-top: 10px;">Feedback</label>
+            <input type="text" id="userMessage" placeholder="Leave us some feedback" required>
+
+            <button type="submit" class="btn" style="margin-top: 15px; width: 100%;">Send Feedback</button>
+        </form>
+
+        <p id="successMessage" style="color: var(--accent); text-align: center; display: none; margin-top: 15px;">
+            Your message has been saved in our system. One of our agents will contact you shortly.
+        </p>
+
+        <div>
+            <a href="index.html" style="text-decoration: none;">
+                <button class="btn" style="background-color: transparent; border-color: var(--muted);">HomePage</button>
+            </a>
+        </div>
+    </section>
+     </main>
+     <script src="contactus.js"></script>
+    
+</body>
+</html>

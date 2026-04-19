@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SPORTS ANALYSIS WEBSITE: MY Project</title>
+        <meta name="keywords" content="sports, analysis, players, fixtures, statistics">
+        <meta name="author" content="Jose I G Torres">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <main id="content" class="container">
+    <header id="webHeader" class="headerContainer">
+        <h1 id="webTitle">BallPredict</h1>
+        <p id="subtitlePara" class="muted-text">Set your predicted end of season tables and much more!</p>    
+    </header>
+
+    <section id="playerContainer" class="containerSection">
+        <div id="favouritePlayer" class="card">
+            <h2 class="card-title">Favourite Player</h2>
+            <label for="favPlayerInput" id="favDisplay">Enter your favourite player:</label>
+            <input type="text" id="favPlayerInput" name="favPlayerInput" placeholder="e.g. Lionel Messi">
+            <button id="submitFavPlayer" class="btn">Submit</button>
+
+            <div id="trophiesWon" class="div-small mt-medium">
+                <!-- <h3>Trophies Won:</h3> -->
+            </div>
+        </div>
+
+        <div id="favouritePlayerStats" class="card">
+            <h2 class="card-title">Favourite Player Statistics</h2>
+            
+            <div class="stats-row">
+                <div id="currentSeasonStats" class="div-small">
+                    <h3>Current Season</h3>
+                </div>
+                
+                <div id="all-time-stats" class="div-small">
+                    <h3>Background</h3>
+                </div>
+                
+                <article id="favouritePlayerInfo" class="div-small">
+                    <h3>Player bio</h3>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="chooseLeagueTable" class="card nav-card">
+        <nav class="button-row">
+            <button class="btn">Premier League</button>
+            <button class="btn">La Liga</button>
+            <button class="btn">Ligue 1</button>
+            <button class="btn">Bundesliga</button>
+            <button class="btn">Serie A</button>
+        </nav>
+    </section>
+
+    <section id="liveInfo" class="containerSection">
+        <div id="liveMatchresults" class="card">
+            <h2 class="card-title">Match Results</h2>
+        </div>
+        <div id="transferNews" class="card">
+            <h2 class="card-title">Transfer News</h2>
+        </div>
+    </section>
+
+    <section id="contactSection" class="div-medium">
+       
+        <a href="contactus.html"> <button class="btn"> Contact Us</button></a>
+        
+
+    </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.15.0/dist/axios.min.js"></script>
+    <script src="ballsport.js"></script>
+    </body>
+</html>

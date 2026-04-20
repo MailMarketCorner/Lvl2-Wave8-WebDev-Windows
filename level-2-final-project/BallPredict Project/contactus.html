@@ -10,6 +10,7 @@
      <main class="container" style="max-width: 600px; margin-top: 5vh;">
         <div class="card">
             <h2 class="card-title" style="text-align: center;">Contact Us</h2>
+            <p>Our offices are open 24/7</p>
         </div>
 
         <form id="contactForm">
@@ -17,10 +18,10 @@
             <input type="text" id="userName" placeholder= "Type your name" required>
 
             <label for="userEmail" style = "margin-top: 10px;">Email:</label>
-            <input type="text" id="userEmail" placeholder="you@example.com" required>
+            <input type="email" id="userEmail" placeholder="you@example.com" required>
 
             <label for="userMessage" style="margin-top: 10px;">Feedback</label>
-            <input type="text" id="userMessage" placeholder="Leave us some feedback" required>
+            <textarea id="userMessage" name="feedback" rows="4" cols="82" placeholder="Leave your feedback here"></textarea>
 
             <button type="submit" class="btn" style="margin-top: 15px; width: 100%;">Send Feedback</button>
         </form>
@@ -34,7 +35,6 @@
                 <button class="btn" style="background-color: transparent; border-color: var(--muted);">HomePage</button>
             </a>
         </div>
-    </section>
      </main>
      <script src="contactus.js"></script>
     

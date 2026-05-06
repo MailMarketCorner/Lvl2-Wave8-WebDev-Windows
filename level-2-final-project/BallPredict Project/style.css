@@ -1,0 +1,202 @@
+/* --- 1. ROOT VARIABLES (Course Dark Theme) --- */
+:root {
+  --bg: #070b16; 
+  --card: rgba(16, 24, 50, 0.86);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  --accent: #2ee59d; /* Using a neon green for the football vibe! */
+}
+
+/* --- 2. BASE STYLES --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: radial-gradient(1200px 700px at 12% 10%, rgba(46, 229, 157, 0.15), transparent),
+              var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.container {
+  width: min(1200px, 100%); /* Limits max width but fills smaller screens */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between main horizontal sections */
+}
+
+/* Header Tweaks */
+.headerContainer {
+    text-align: center;
+    margin-bottom: 10px;
+}
+#webTitle {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    color: var(--accent);
+}
+.muted-text {
+    color: var(--muted);
+    margin: 0;
+}
+
+/* --- 3. THE CARD THEME --- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+/* --- 4. FORM INPUTS --- */
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  outline: none;
+  font-size: 1rem;
+}
+
+input:focus {
+    border-color: var(--accent);
+}
+
+/* --- 5. FLEXBOX LAYOUTS --- */
+
+/* Top Section (Left Input, Right Stats) */
+#playerContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#favouritePlayer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#favouritePlayerStats {
+    flex: 2;
+    display: flex;
+    flex-direction: column; /* Stacks the title above the boxes */
+}
+
+/* The 3 Inner Stat Boxes */
+.stats-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex: 1; /* Pushes them to fill the remaining card height */
+}
+
+.div-small {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.div-small h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.mt-medium {
+    margin-top: 20px;
+    flex: 1;
+}
+
+/* --- 6. BUTTONS & NAV --- */
+.nav-card {
+    padding: 16px 24px; /* Slightly thinner card for the nav */
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+    background: rgba(46, 229, 157, 0.2);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* --- 7. BOTTOM MATCH RESULTS SECTION --- */
+#liveInfo {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#liveMatchresults, #transferNews {
+    flex: 1;
+    min-height: 250px;
+}
+
+/* --- 8. RESPONSIVE DESIGN (MOBILE) --- */
+@media (max-width: 768px) {
+    /* Stack the top player section */
+    #playerContainer {
+        flex-direction: column;
+    }
+    
+    /* Stack the stats boxes inside the right card */
+    .stats-row {
+        flex-direction: column;
+    }
+
+    /* Stack the match results and transfer news */
+    #liveInfo {
+        flex-direction: column;
+    }
+}
